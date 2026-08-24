@@ -1,0 +1,142 @@
+/* 花火 SOUND DELAY — サイトの見た目。アプリと同じ夜空の地・光の金・音の青。 */
+
+:root {
+  --ink: #06070f;
+  --ink-top: #131c3a;
+  --gold: #f5c56b;
+  --gold-deep: #f0a63c;
+  --gold-core: #fff6e2;
+  --wave: #6fd3e3;
+  --text: #edeef2;
+  --muted: rgba(237, 238, 242, 0.56);
+  --faint: rgba(237, 238, 242, 0.34);
+  --line: rgba(255, 255, 255, 0.10);
+  --panel: rgba(255, 255, 255, 0.045);
+  --mincho: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Yu Mincho", "YuMincho", serif;
+  --gothic: "Hiragino Sans", "Hiragino Kaku Gothic ProN", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Noto Sans JP", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--gothic);
+  color: var(--text);
+  background:
+    radial-gradient(120% 70% at 50% -10%, var(--ink-top) 0%, var(--ink) 62%),
+    var(--ink);
+  background-attachment: fixed;
+  line-height: 1.9;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap { width: min(920px, calc(100% - 44px)); margin: 0 auto; }
+
+/* ---- 見出し（アプリと同じ明朝） ---- */
+h1, h2, h3, .num { font-family: var(--mincho); font-weight: 600; letter-spacing: 0.04em; }
+
+/* ---- ヘッダ ---- */
+.site-head {
+  display: flex; align-items: baseline; gap: 12px;
+  padding: 26px 0 0;
+}
+.site-head .brand { font-family: var(--mincho); font-size: 20px; color: var(--gold); letter-spacing: 0.28em; }
+.site-head .sub { font-size: 10px; letter-spacing: 0.34em; color: var(--faint); }
+.site-head nav { margin-left: auto; font-size: 12px; }
+.site-head nav a { color: var(--muted); }
+
+/* ---- ヒーロー ---- */
+.hero { text-align: center; padding: 62px 0 10px; }
+.hero img.icon {
+  width: 108px; height: 108px; border-radius: 24px;
+  box-shadow: 0 18px 60px rgba(240, 166, 60, 0.22);
+}
+.hero h1 {
+  font-size: clamp(34px, 7vw, 54px);
+  line-height: 1.5; margin: 30px 0 0; color: var(--gold-core);
+}
+.hero p.lead {
+  margin: 18px auto 0; max-width: 34em;
+  color: var(--muted); font-size: 15px;
+}
+.badges { margin-top: 30px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 20px; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--muted); font-size: 12.5px;
+}
+.pill strong { font-family: var(--mincho); color: var(--wave); font-size: 15px; font-weight: 600; }
+.pill.solid {
+  background: linear-gradient(180deg, var(--gold), var(--gold-deep));
+  color: #17110a; border: none; font-weight: 700;
+}
+
+/* ---- 節 ---- */
+section { padding: 60px 0; border-top: 1px solid var(--line); margin-top: 60px; }
+section:first-of-type { border-top: none; }
+h2 { font-size: 23px; margin: 0 0 10px; color: var(--gold-core); }
+.section-note { color: var(--faint); font-size: 12px; letter-spacing: 0.2em; margin: 0 0 26px; }
+
+.cards { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.card {
+  border: 1px solid var(--line); border-radius: 18px; background: var(--panel);
+  padding: 24px 22px;
+}
+.card h3 { font-size: 17px; margin: 0 0 8px; color: var(--text); }
+.card p { margin: 0; color: var(--muted); font-size: 13.5px; }
+.card .step { font-size: 11px; letter-spacing: 0.22em; color: var(--gold); display: block; margin-bottom: 12px; }
+
+/* ---- 仕組み ---- */
+.formula {
+  display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+  border: 1px solid var(--line); border-radius: 18px; background: var(--panel);
+  padding: 22px 24px; margin: 0 0 20px;
+}
+.formula .num { font-size: 28px; color: var(--gold-core); }
+.formula .eq { color: var(--faint); font-size: 13px; }
+.formula .out { font-size: 28px; color: var(--wave); font-family: var(--mincho); }
+
+/* ---- スクリーンショット ---- */
+.shots { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+.shots figure { margin: 0; }
+.shots img {
+  width: 100%; height: auto; display: block;
+  border-radius: 20px; border: 1px solid var(--line);
+}
+.shots figcaption { margin-top: 12px; color: var(--faint); font-size: 12px; text-align: center; }
+
+/* ---- 文章のページ（プライバシーポリシー） ---- */
+.doc { padding-top: 40px; }
+.doc h1 { font-size: 30px; margin: 0 0 6px; color: var(--gold-core); }
+.doc .updated { color: var(--faint); font-size: 12px; margin: 0 0 40px; letter-spacing: 0.12em; }
+.doc h2 { font-size: 18px; margin: 44px 0 10px; }
+.doc p, .doc li { color: var(--muted); font-size: 14px; max-width: 44em; }
+.doc ul { padding-left: 1.2em; }
+.doc li { margin-bottom: 6px; }
+.doc .highlight {
+  border: 1px solid rgba(111, 211, 227, 0.30);
+  background: rgba(111, 211, 227, 0.07);
+  border-radius: 18px; padding: 22px 24px; margin: 26px 0 0;
+}
+.doc .highlight p { color: var(--text); margin: 0; font-size: 14.5px; max-width: none; }
+
+/* ---- フッタ ---- */
+footer {
+  border-top: 1px solid var(--line); margin-top: 70px;
+  padding: 30px 0 54px; color: var(--faint); font-size: 12px;
+  display: flex; gap: 18px; flex-wrap: wrap; align-items: center;
+}
+footer .spacer { margin-left: auto; }
+
+@media (max-width: 560px) {
+  body { font-size: 14px; }
+  section { padding: 46px 0; margin-top: 46px; }
+  .hero { padding-top: 44px; }
+}
